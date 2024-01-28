@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Example;
 use Illuminate\Http\Request;
 
 class ExampleController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     *git
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -18,7 +19,10 @@ class ExampleController extends Controller
     }
 
     public function example() {
-        return view('example');
+        // $examples = Example::all();
+        // $examples = Example::find(1);
+        $examples = Example::find([1,2]);
+        return view('example', ["examples" => $examples]);
     }
     
     /**
